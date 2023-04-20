@@ -1,0 +1,23 @@
+<div class="content">
+    <h3>{{contentToDisplay.title}}</h3>
+    <span class="displayBlock">
+        <strong class="displayBlock">Description</strong>
+        {{contentToDisplay.description}}
+    </span>
+    <span class="displayBlock">
+        <strong class="displayBlock">Creator</strong>
+        {{contentToDisplay.creator}}
+    </span>
+    <span class="displayBlock" *ngIf="contentToDisplay.type">
+        <strong class="displayBlock">Type</strong>
+        {{contentToDisplay?.type}}
+    </span>
+    <span class="displayBlock" *ngIf="contentToDisplay.imgURL">
+        <strong class="displayBlock">Image:</strong>
+        <img src="{{contentToDisplay.imgURL}}" alt="{{contentToDisplay.title}}" width="60" height="60" (click)="logIdTitle(contentToDisplay)"/>
+    </span>
+    <span class="displayBlock" *ngIf="contentToDisplay.tags">
+        <strong class="displayBlock">Tags</strong>
+        <span *ngFor="let tag of contentToDisplay.tags;let i=index" class="tag-span">{{tag}} {{i==contentToDisplay.tags.length-1?'':'| '}}</span>
+    </span>
+</div>
